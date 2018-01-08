@@ -37,7 +37,7 @@ public class ClaveUnicaUtils {
                 .append("&redirect_uri=").append(urlEncoder(configDto.getRedirectUrl()))
                 .append("&response_type=").append("code")
                 .append("&scope=").append("openid run name")
-                .append("$state=").append(state);
+                .append("&state=").append(state);
         BotonClaveUnicaDto dto = new BotonClaveUnicaDto();
         dto.setState(state);
         dto.setUrl(urlSalida.toString());
