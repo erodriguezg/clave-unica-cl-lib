@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.erodriguezg</groupId>
     <artifactId>clave-unica-cl-lib</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <name>github erodriguezg clave unica cl lib</name>
     <description>Componentes utilitarios para integración con clave única de gobierno chile</description>

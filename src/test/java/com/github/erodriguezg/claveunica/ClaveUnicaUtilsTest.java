@@ -28,11 +28,12 @@ public class ClaveUnicaUtilsTest {
 
 
     private static final String TOKEN_ACCESO_JSON =
-            "{\n" +
-                    "    \"access_token\": \"95104ab471534af08683aefa7d0935a3\",\n" +
-                    "    \"token_type\": \"bearer\",\n" +
-                    "    \"expires_in\": 3600,\n" +
-                    "    \"id_token\": \"eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg1ZGVjMDU1MjZmNjUwZGIxYWMyYWFlMTI4NTc3NGM3In0\"\n" +
+            "{ \n" +
+                    "\t\"access_token\": \"eb7fc75fb7ee47d8a351f055b69e62fd\", \n" +
+                    "\t\"token_type\": \"bearer\", \n" +
+                    "\t\"expires_in\": 3600, \n" +
+                    "\t\"refresh_token\": \"fe59fc078e364bdca2b06c7802b1c958\", \n" +
+                    "\t\"id_token\": \"eyJhbGcckTMBEraqh0qmcMOV1oC4VcFddKg\"\n" +
                     "}\n";
 
     @Mock
@@ -66,10 +67,11 @@ public class ClaveUnicaUtilsTest {
     @Test
     public void solicitarTokenAccesoTest() throws ClaveUnicaException {
         TokenAccesoDto tokenEsperado = new TokenAccesoDto();
-        tokenEsperado.setAccesToken("95104ab471534af08683aefa7d0935a3");
+        tokenEsperado.setAccesToken("eb7fc75fb7ee47d8a351f055b69e62fd");
         tokenEsperado.setTokenType("bearer");
         tokenEsperado.setExpiresIn(3600);
-        tokenEsperado.setIdToken("eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg1ZGVjMDU1MjZmNjUwZGIxYWMyYWFlMTI4NTc3NGM3In0");
+        tokenEsperado.setRefreshToken("fe59fc078e364bdca2b06c7802b1c958");
+        tokenEsperado.setIdToken("eyJhbGcckTMBEraqh0qmcMOV1oC4VcFddKg");
         HttpResponseDto responseDto = new HttpResponseDto();
         responseDto.setResponseStatus(200);
         responseDto.setResponseByte(TOKEN_ACCESO_JSON.getBytes());

@@ -1,12 +1,16 @@
 package com.github.erodriguezg.claveunica.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InfoCiudadanoDto implements Serializable{
+
+    private static final long serialVersionUID = 1845601077096081922L;
 
     @JsonProperty("sub")
     private String sub;
