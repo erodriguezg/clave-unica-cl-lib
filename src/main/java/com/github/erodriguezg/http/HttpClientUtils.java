@@ -53,6 +53,10 @@ public class HttpClientUtils {
             int statusCode = response.getStatusLine().getStatusCode();
             log.debug("status: {}", statusCode);
             responseDto.setResponseStatus(statusCode);
+            if(response.getEntity() == null) {
+                responseDto.setResponseByte(null);
+                return responseDto;
+            }
             try (InputStream inputStream = response.getEntity().getContent();
                  ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
                 IOUtils.copy(inputStream, byteArrayOutputStream);
