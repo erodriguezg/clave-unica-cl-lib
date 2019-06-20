@@ -2,7 +2,7 @@ package com.github.erodriguezg.claveunica.dto;
 
 import java.io.Serializable;
 
-public class BotonClaveUnicaDto implements Serializable {
+public class UrlClaveUnicaDto implements Serializable {
     private String url;
     private String state;
 

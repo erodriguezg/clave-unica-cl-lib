@@ -123,7 +123,7 @@ public class HttpClientUtils {
             return HttpClients
                     .custom()
                     .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
-                    .setSslcontext(new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
+                    .setSSLContext(new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
                         @Override
                         public boolean isTrusted(X509Certificate[] chain, String authType) throws CertificateException {
                             return true;
