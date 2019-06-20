@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.Arrays;
 
@@ -20,7 +20,7 @@ import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ClaveUnicaUtilsTest {
+public class ClaveUnicaUtilsImplTest {
 
     private static final String INFO_USER_JSON = "{ \"sub\": \"2\", \"RolUnico\": { \"numero\": 55555555, \"DV\": \"5\", \"tipo\": \"RUN\" }, " +
             "\"name\": { \"nombres\": [ \"Maria\", \"Carmen\", \"De\", \"Los\", \"Angeles\"], " +
@@ -43,7 +43,7 @@ public class ClaveUnicaUtilsTest {
     private HttpClientUtils httpClientUtils;
 
     @InjectMocks
-    private ClaveUnicaUtils claveUnicaUtils;
+    private ClaveUnicaUtilsImpl claveUnicaUtilsImpl;
 
     @Test
     public void solicitarInfoCiudadanoTest() throws UserInfoClaveUnicaException {
@@ -60,7 +60,7 @@ public class ClaveUnicaUtilsTest {
         responseDto.setResponseStatus(200);
         responseDto.setResponseByte(INFO_USER_JSON.getBytes());
         when(httpClientUtils.doRequest(any(), any(), any(), any())).thenReturn(responseDto);
-        InfoCiudadanoDto infoCiudadanoDto = claveUnicaUtils.solicitarInfoCiudadano(new TokenAccesoDto());
+        InfoCiudadanoDto infoCiudadanoDto = claveUnicaUtilsImpl.solicitarInfoCiudadano(new TokenAccesoDto());
         assertThat(infoCiudadanoDto).isEqualToComparingFieldByField(infoEsperado);
     }
 
@@ -77,7 +77,7 @@ public class ClaveUnicaUtilsTest {
         responseDto.setResponseByte(TOKEN_ACCESO_JSON.getBytes());
         when(httpClientUtils.doRequest(any(), any(), any(), any())).thenReturn(responseDto);
         when(configDto.getRedirectUrl()).thenReturn("http://www.google.cl/");
-        TokenAccesoDto tokenAccesoDto = claveUnicaUtils.solicitarTokenAcceso("cualquiera", "state", "state");
+        TokenAccesoDto tokenAccesoDto = claveUnicaUtilsImpl.solicitarTokenAcceso("cualquiera", "state");
         assertThat(tokenAccesoDto).isEqualToComparingFieldByField(tokenEsperado);
     }
 

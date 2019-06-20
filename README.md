@@ -27,7 +27,7 @@ parametros:
 
 ### 2) Crear instancia de ClaveUnicaUtils:
 
-Clase: com.github.erodriguezg.claveunica.ClaveUnicaUtils
+Clase: com.github.erodriguezg.claveunica.ClaveUnicaUtilsImpl
 
 ejemplo:
 
@@ -76,7 +76,7 @@ Salida:
 * Para el paso 1 y 2 se debe crear instancias singleton de los objetos. Ejemplo:
 
 <code>
-import com.github.erodriguezg.claveunica.ClaveUnicaUtils; <br/>
+import com.github.erodriguezg.claveunica.ClaveUnicaUtilsImpl; <br/>
 import com.github.erodriguezg.claveunica.dto.ConfiguracionClienteDto; <br/>
 import com.github.erodriguezg.http.HttpClientUtils; <br/>
 import org.springframework.beans.factory.annotation.Value; <br/>
